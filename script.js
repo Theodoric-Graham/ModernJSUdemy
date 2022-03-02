@@ -49,7 +49,7 @@ console.log(getLastPost());
 
 const lastPost2 = await getLastPost();
 console.log(lastPost2);
-*/
+
 //the main goal of the module pattern is to encapsulate functionality to have
 //private data and to expose a public api
 
@@ -90,3 +90,16 @@ ShoppingCart2.addToCart('apple', 4);
 ShoppingCart2.addToCart('pizza', 2);
 console.log(ShoppingCart2);
 console.log(ShoppingCart2.shippingCost);
+*/
+
+//Export in node js
+export.addTocart = function (product, quantity) {
+  cart.push({ product, quantity });
+  console.log(
+    `${quantity} ${product} was added to the cart(shipping cost is ${shippingCost})`
+  );
+};
+
+//Import in node js
+
+const { addToCart} = require('./shoppingCart.js')
