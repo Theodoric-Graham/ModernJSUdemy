@@ -8,6 +8,8 @@
 
 console.log('Importing Module');
 
+*/
+
 // import * as ShoppingCart from './shoppingCart.js';
 // ShoppingCart.addToCart('bread', 5);
 // console.log(ShoppingCart.totalPrice);
@@ -16,15 +18,15 @@ console.log('Importing Module');
 // import add, { addToCart, totalPrice as price, tq } from './shoppingCart.js';
 // console.log(price);
 
-import add, { shippingCost } from './shoppingCart.js';
-// add('pizza', 2);
-// add('bread', 5);
-// add('apples', 4);
-add(4);
-add(4);
-add(9);
+import add, { cart } from './shoppingCart';
+add('pizza', 2);
+add('bread', 5);
+add('apples', 4);
+// add(4);
+// add(4);
+// add(9);
 
-console.log(shippingCost);
+console.log(cart);
 
 // console.log('start fetching');
 
@@ -33,7 +35,7 @@ console.log(shippingCost);
 // const data = await res.json();
 // console.log(data);
 // console.log('something');
-
+/*
 const getLastPost = async function () {
   const res = await fetch('https://jsonplaceholder.typicode.com/posts');
   const data = await res.json();
@@ -111,7 +113,9 @@ const { addToCart} = require('./shoppingCart.js')
 
 //
 
-import cloneDeep from './node_modules/lodash-es/cloneDeep.js';
+// import cloneDeep from './node_modules/lodash-es/cloneDeep.js';
+// import cloneDeep from 'lodash-es';
+import cloneDeep from 'lodash';
 
 const state = {
   cart: [
@@ -127,3 +131,9 @@ state.user.loggedIn = false;
 console.log(stateClone);
 
 console.log(stateDeepClone);
+
+//when we change something this will not reload this part of the page, good for
+//maintaining state on a page
+if (module.hot) {
+  module.hot.accept();
+}

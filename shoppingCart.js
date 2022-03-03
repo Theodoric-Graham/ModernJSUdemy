@@ -19,11 +19,11 @@ const totalQuantity = 23;
 
 export { totalPrice, totalQuantity as tq };
 
-// export default function (product, quantity) {
-//   cart.push({ product, quantity });
-//   console.log(`${quantity} ${product} was added to the cart`);
-// }
-
-export default function (number) {
-  shippingCost += number;
+export default function (product, quantity) {
+  cart.push({ product, quantity });
+  console.log(`${quantity} ${product} was added to the cart`);
 }
+
+// export default function (number) {
+//   shippingCost += number;
+// }
