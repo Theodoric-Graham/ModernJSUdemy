@@ -90,7 +90,7 @@ ShoppingCart2.addToCart('apple', 4);
 ShoppingCart2.addToCart('pizza', 2);
 console.log(ShoppingCart2);
 console.log(ShoppingCart2.shippingCost);
-*/
+
 
 //Export in node js
 export.addTocart = function (product, quantity) {
@@ -103,3 +103,27 @@ export.addTocart = function (product, quantity) {
 //Import in node js
 
 const { addToCart} = require('./shoppingCart.js')
+*/
+
+//Intro to NPM
+
+//Node Packet Manager - Both a software on our computer and a package repo
+
+//
+
+import cloneDeep from './node_modules/lodash-es/cloneDeep.js';
+
+const state = {
+  cart: [
+    { product: 'bread', quantity: 5 },
+    { product: 'pizza', quantity: 5 },
+  ],
+  user: { loggedIn: true },
+};
+const stateClone = Object.assign({}, state);
+const stateDeepClone = cloneDeep(state);
+
+state.user.loggedIn = false;
+console.log(stateClone);
+
+console.log(stateDeepClone);
